@@ -1,0 +1,22 @@
+{
+  "name": "jenkinstest",
+  "version": "1.0.1",
+  "description": "to test npm on jenkins server",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc 1>&2",
+    "test":"mocha ./lib/test/*.test.js",
+    "test:cover": "nyc mocha ./lib/test/*.test.js",
+    "start": "node ./lib/index.js",
+    "cover": "nyc report --reporter=lcov"
+  },
+  "devDependencies": {
+    "@itwin/build-tools": "3.4.2",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nyc": "15.1.0",
+    "typescript": "^4.8.4"
+  },
+  "author": "Hamza",
+  "license": "ISC"
+}
