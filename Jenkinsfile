@@ -42,15 +42,27 @@ pipeline {
             }
         }
 
-        stage('Run Code Coverage with tests') {
+        stage('Run Code Coverage') {
             steps {
                 sh 'npm run test:cover'
-                sh 'npm run cover'
             }
 
             post {
                 success {
                     echo 'Code coverage done!'
+                }
+            }
+        }
+
+
+        stage('Run Code Coverage and generate lcov info file') {
+            steps {
+                sh 'npm run cover'
+            }
+
+            post {
+                success {
+                    echo 'lcov info file generated!'
                 }
             }
         }
