@@ -42,5 +42,19 @@ pipeline {
             }
         }
 
+        stage('Run Code Coverage with tests') {
+            steps {
+                sh 'npm run test:cover'
+                sh 'npm run cover'
+            }
+
+            post {
+                success {
+                    echo 'Code coverage done!'
+                }
+            }
+        }
+
+
     }
 }
