@@ -11,11 +11,11 @@ describe("Test Block",()=> {
         sub(1000,1);
     });
 
-    /*it("Check sub function num2 greater than num 1",()=>{
+    it("Check sub function num2 greater than num 1",()=>{
         sub(2,1000);
-    });*/
-
-    it("Forcefully fail the test",()=>{
-        assert.isequal(1,2);
     });
+
+    /*it("Forcefully fail the test",()=>{
+        assert.isequal(1,2);
+    });*/
 })
