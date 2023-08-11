@@ -5,11 +5,6 @@ pipeline {
     }
 
     stages {
-        stage('Fetch Code') {
-            steps {
-                git branch: 'main', url: 'https: //github.com/hamzarauf360/npmcodecoveragetest.git'
-            }
-        }
 
         stage('install') {
             steps {
