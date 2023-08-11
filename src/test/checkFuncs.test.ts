@@ -15,7 +15,7 @@ describe("Test Block",()=> {
         sub(2,1000);
     });*/
 
-    it.skip("Forcefully fail the test",()=>{
+    it("Forcefully fail the test",()=>{
         assert.isequal(1,2);
     });
 })
