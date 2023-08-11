@@ -67,6 +67,24 @@ pipeline {
             }
         }
 
+        stage('Sonar analysis') {
+            environemnt{
+                scannerHome = tool 'sonar4.7'
+            }
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh '''
+                    $(scannerHome)/bin/sonar-scanner \
+                    -Dsonar.projectKey=npmcodecoverage \
+                    -Dsonar.projectName=npmcodecoverage \
+                    -Dsonar.projectVersion=1.0.1 \
+                    -Dsonar.sources=src \
+                    -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+                    '''
+                }
+            }
+        }
+
 
     }
 }
