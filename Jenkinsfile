@@ -76,6 +76,7 @@ pipeline {
 
         stage('Append the version no. in artifact') {
             steps {
+                sh 'whoami'
         		sh 'mkdir /opt/versions'
         		sh 'cp jenkinstest-1.0.1.tgz /opt/versions/jenkinstest-1.0.1-${BUILD_NUMBER}.tgz'
         	}
