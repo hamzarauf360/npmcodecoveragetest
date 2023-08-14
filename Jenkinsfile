@@ -70,7 +70,7 @@ pipeline {
 
         stage('Npm Pack') {
         	steps {
-        		'sh npm pack'
+        		sh 'npm pack'
         	}
         }
 
