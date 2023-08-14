@@ -107,7 +107,7 @@ pipeline {
                   protocol: 'http',
                   nexusUrl: '3.92.203.232:8081',
                   groupId: 'QA',
-                  version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                  version: "${env.BUILD_ID}",
                   repository: 'npmtestpackagerepo',
                   credentialsId: 'nexuslogin',
                   artifacts: [
