@@ -68,6 +68,12 @@ pipeline {
             }
         }
 
+        stage('Npm Pack') {
+        	steps {
+        		'sh npm pack'
+        	}
+        }
+
         stage('Sonar analysis') {
             environment{
                 scannerHome = tool 'sonar4.7'
