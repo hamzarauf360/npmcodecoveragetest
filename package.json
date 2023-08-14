@@ -1,6 +1,6 @@
 {
   "name": "jenkinstest",
-  "version": "v1",
+  "version": "1",
   "description": "to test npm on jenkins server",
   "main": "index.js",
   "scripts": {
