@@ -99,5 +99,25 @@ pipeline {
                 }
             }
         }
+
+       stage("UploadArtifact"){
+            steps{
+                nexusArtifactUploader(
+                  nexusVersion: 'nexus3',
+                  protocol: 'http',
+                  nexusUrl: '3.92.203.232:8081',
+                  groupId: 'QA',
+                  version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                  repository: 'npmtestpackagerepo',
+                  credentialsId: 'nexuslogin',
+                  artifacts: [
+                    [artifactId: 'jenkinstest',
+                     classifier: '',
+                     file: 'jenkinstest-1.0.1.tgz',
+                     type: 'tgz']
+    ]
+ )
+            }
+        }
     }
 }
