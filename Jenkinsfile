@@ -107,13 +107,13 @@ pipeline {
                   protocol: 'http',
                   nexusUrl: '3.92.203.232:8081',
                   groupId: 'QA',
-                  version: "${env.BUILD_ID}",
+                  version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                   repository: 'npmtestpackagerepo',
                   credentialsId: 'nexuslogin',
                   artifacts: [
                     [artifactId: 'jenkinsproject',
                      classifier: '',
-                     file: 'jenkinstest-1.0.1.tgz',
+                     file: 'jenkinstest-1.0.0.tgz',
                      type: 'tgz']
     ]
  )
