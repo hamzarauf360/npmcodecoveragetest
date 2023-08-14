@@ -111,7 +111,7 @@ pipeline {
                   repository: 'npmtestpackagerepo',
                   credentialsId: 'nexuslogin',
                   artifacts: [
-                    [artifactId: 'jenkinstest',
+                    [artifactId: 'jenkinsproject',
                      classifier: '',
                      file: 'jenkinstest-1.0.1.tgz',
                      type: 'tgz']
