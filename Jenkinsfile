@@ -74,32 +74,11 @@ pipeline {
         	}
         }
 
-        stage('Sonar analysis') {
-            environment{
-                scannerHome = tool 'sonar4.7'
-            }
+        stage('Append the version no. in artifact') {
             steps {
-                withSonarQubeEnv('sonar') {
-                    sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=npmcodecoverage \
-                    -Dsonar.projectName=npmcodecoverage \
-                    -Dsonar.projectVersion=1.0.1 \
-                    -Dsonar.sources=src/ \
-                    -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-                    '''
-                }
-            }
+        		sh 'mkdir /opt/versions'
+        		sh 'cp jenkinstest-1.0.1.tgz /opt/versions/jenkinstest-1.0.1-${BUILD_NUMBER}.tgz'
+        	}
         }
-
-        stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
-
-
     }
 }
