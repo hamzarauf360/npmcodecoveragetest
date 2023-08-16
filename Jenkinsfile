@@ -7,7 +7,7 @@ pipeline {
     
 	environment {
         registryCredential = 'ecr:us-east-1:awscreds'
-        appRegistry = "483620405894.dkr.ecr.us-east-1.amazonaws.com/nodeprojectartifact"
+        appRegistry = "483620405894.dkr.ecr.us-east-1.amazonaws.com/nodeprojectimage"
         nodeRegistry = "https://483620405894.dkr.ecr.us-east-1.amazonaws.com"
     }
 	
