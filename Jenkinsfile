@@ -5,6 +5,12 @@ pipeline {
         nodejs 'node'
     }
     
+	environment {
+        registryCredential = 'ecr:us-east-1:awscreds'
+        appRegistry = "483620405894.dkr.ecr.us-east-1.amazonaws.com/nodeprojectartifact"
+        nodeRegistry = "https://483620405894.dkr.ecr.us-east-1.amazonaws.com"
+    }
+	
     stages {
 
         stage('install') {
@@ -94,6 +100,26 @@ pipeline {
                 }
             }
         }
+		
+		stage('Build App Image') {
+			steps {
+				script {
+					dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", "./Docker/")
+				}
+			}
+    
+		}
+		
+		stage('Upload App Image') {
+          steps{
+            script {
+              docker.withRegistry( nodeRegistry, registryCredential ) {
+                dockerImage.push("$BUILD_NUMBER")
+                dockerImage.push('latest')
+              }
+            }
+          }
+     }
 
     }
 }
