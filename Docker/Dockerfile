@@ -4,4 +4,4 @@ RUN cd npmcodecoveragetest && git checkout docker-ci
 WORKDIR npmcodecoveragetest
 RUN npm install
 RUN npm run build
-CMD ["npm","pack"]
+CMD ["node","lib/index.js"]
